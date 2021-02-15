@@ -16,7 +16,7 @@ I was most drawn to a folder called `hid/` indicating that this was a hid device
 
 Using the java decompiler `cfr` on some of these files I could figure out the USB protocol. Most important ones are `DeviceCommunicationHandler.class` which handles incoming data from the PCPanel (knob turning and button clicking) and `OutputInterpreter.class` which handles sending data to the PCPanel (setting RGB state).
 
-My findings:
+## Findings
 
 Incoming data from PCPanel is 3 bytes long, the first being a message type (knob turn or button press), the second being the knob in question (I'm guessing 0-3, but I'll have to wait for my unit to test) and finally the last byte being the value of the knob turn or button press/release.
 
@@ -51,20 +51,18 @@ All other outgoing data starts with 2 as message type (`OUTPUT_CODE_RGB`), follo
 
 Animations:
 
-RAINBOW:
 ```
+RAINBOW:
 -------------------------------------------------------------------
 | 2 | 3 | PHASE_SHIFT | SATURATION | BRIGHTNESS | SPEED | REVERSE |
 -------------------------------------------------------------------
-```
+
 WAVE:
-```
 --------------------------------------------------------------------
 | 2 | 4 | HUE | SATURATION | BRIGHTNESS | SPEED | REVERSE | BOUNCE |
 --------------------------------------------------------------------
-```
+
 BREATH:
-```
 -------------------------------------------------
 | 2 | 5 | HUE | SATURATION | BRIGHTNESS | SPEED |
 -------------------------------------------------
@@ -72,26 +70,23 @@ BREATH:
 
 Static:
 
-SendRGB:
 ```
+SendRGB:
 -----------------------------------
 | 2 | 1 | 1 | KNOB_ID | R | G | B |
 -----------------------------------
-```
+
 SendRGBAll:
-```
 -------------------------
 | 2 | 1 | 0 | R | G | B |
 -------------------------
-```
+
 SendHSV:
-```
 -----------------------------------
 | 2 | 2 | 1 | KNOB_ID | H | S | V |
 -----------------------------------
-```
+
 SendHSVAll:
-```
 -------------------------
 | 2 | 2 | 0 | H | S | V |
 -------------------------
