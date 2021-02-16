@@ -2,6 +2,8 @@
 
 2021-02-13: I have ordered a unit but it hasn't been shipped yet so all I can do is look at the driver.
 
+2021-02-16: I figured out what the VolumeTracking does.
+
 ## Looking at the driver
 
 I started by looking at the driver installer using binwalk and strings. I tried to extract stuff from it but I couldn't find anything useful.
@@ -102,4 +104,6 @@ But from what I can tell `sendFullLEDData` works as following:
 -------------------------------------------------------------------------------------------------------
 ```
 
-What I'm unsure of is what the meaning of volume track is in this case, maybe it's only relevant for the PCPanel Pro which has sliders as well or maybe it tells the knobs to only light part of the ring that follows the potentiometer, I don't know if the hardware is capable of it.
+~~What I'm unsure of is what the meaning of volume track is in this case, maybe it's only relevant for the PCPanel Pro which has sliders as well or maybe it tells the knobs to only light part of the ring that follows the potentiometer, I don't know if the hardware is capable of it.~~
+
+VolumeTrack simply sets the knobs to set the led brightness depending on how high the volume knob is turned.
