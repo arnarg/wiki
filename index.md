@@ -1,2 +1,2 @@
 # Notes
-[[PCPanel Reverse Engineering]]
+[PCPanel Reverse Engineering](pcpanel-reverse-engineering.md)
